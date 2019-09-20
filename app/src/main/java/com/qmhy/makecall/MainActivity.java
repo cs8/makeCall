@@ -96,8 +96,8 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onFailure(int statusCode, Header[] headers, String responseString, Throwable throwable) {
                 //用Toast显示是否请求成功
-                Toast.makeText(MainActivity.this, "请重新登录", Toast.LENGTH_SHORT).show();
-                finish();
+                Toast.makeText(MainActivity.this, "连网失败", Toast.LENGTH_SHORT).show();
+//                finish();
             }
 
             @Override

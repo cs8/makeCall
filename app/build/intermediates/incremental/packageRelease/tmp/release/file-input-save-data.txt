@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Sep 04 16:31:34 CST 2019
+#Fri Sep 20 12:42:18 CST 2019
 0.baseType=DIRECTORY
 0.base=E\:\\androidstudio\\project\\MakeCall\\app\\build\\intermediates\\dex\\release\\mergeDexRelease\\out
 0.path=classes.dex

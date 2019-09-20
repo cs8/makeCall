@@ -20,7 +20,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:layout_marginRight="10dp"
-        android:text="18671301819"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
     <TextView
@@ -38,7 +37,6 @@
         android:layout_marginTop="10dp"
         android:layout_marginLeft="10dp"
         android:password="true"
-        android:text="123456"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 

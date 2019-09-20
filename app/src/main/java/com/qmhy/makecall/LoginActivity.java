@@ -43,6 +43,10 @@ public class LoginActivity extends AppCompatActivity {
         findViewById(R.id.button2).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if(editTextUsrName.getText().length()==0||editTextPassWord.getText().length()==0){
+                    Toast.makeText(LoginActivity.this,"请填写登录信息",Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 if (ActivityCompat.checkSelfPermission(LoginActivity.this, Manifest.permission.CALL_PHONE) != PackageManager.PERMISSION_GRANTED) {
                     //申请权限
                     Toast.makeText(LoginActivity.this,"请打开权限",Toast.LENGTH_SHORT).show();
@@ -51,10 +55,7 @@ public class LoginActivity extends AppCompatActivity {
                     return;
                 }
 
-                if(editTextUsrName.getText().length()==0||editTextPassWord.getText().length()==0){
-                    Toast.makeText(LoginActivity.this,"请填写登录信息",Toast.LENGTH_SHORT).show();
-                    return;
-                }
+
                 login();
 
 
@@ -81,14 +82,19 @@ public class LoginActivity extends AppCompatActivity {
             public void onSuccess(int statusCode, Header[] headers, String responseString) {
                 try {
                     JSONObject jsonObject = new JSONObject(responseString);
+                      if("1".equals(jsonObject.get("code").toString())){
+                          token=jsonObject.get("token").toString();
+                          startActivity(new Intent(LoginActivity.this,MainActivity.class)
+                                  .putExtra("token",token)
+                                  .putExtra("login_phone",editTextUsrName.getText().toString()));
+                      }else{
+                          Toast.makeText(LoginActivity.this,"登录失败",Toast.LENGTH_SHORT).show();
+                      }
+
+
 
 //                    Toast.makeText(LoginActivity.this,jsonObject.get("token").toString(),Toast.LENGTH_SHORT).show();
-                    token=jsonObject.get("token").toString();
 
-                    startActivity(new Intent(LoginActivity.this,MainActivity.class)
-                            .putExtra("token",token)
-                            .putExtra("login_phone",editTextUsrName.getText().toString())
-                    );
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
