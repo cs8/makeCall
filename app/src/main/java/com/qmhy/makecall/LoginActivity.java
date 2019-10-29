@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity {
             finish();
             return;
         }
-        ;;;;;
+        ;;;;;;;;;;;;;;;;;;;;;;;;;;
 
         editTextUsrName=(EditText)findViewById(R.id.ed_1) ;
         editTextPassWord=(EditText)findViewById(R.id.ed_password) ;
